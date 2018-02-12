@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="FantasyGrease.Views.StatusBoxViewPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FantasyGrease.Views"
+             xmlns:values="clr-namespace:FantasyGrease.Models"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="180">
+
+    <Control.Resources>
+        <values:StatusBoxPlayer x:Key="statusBoxPlayer"/>
+    </Control.Resources>
+    
+    <Grid DataContext="{Binding Source={StaticResource statusBoxPlayer}}">
+        <!--Grid Col Defs-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <!-- Grid Row Defs -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Status Labels -->
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Text="HP:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Text="MP:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="Zone:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Text="Pos X:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Text="Pos Y:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Text="Pos Z:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Text="Target:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Text="Tar. ID:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Text="Action:" VerticalAlignment="Center" Foreground="White"/>
+        
+        <!-- Status Values -->
+        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueZone" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosZ" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueTarget" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueTargetId" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueAction" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+
+    </Grid>
+</UserControl>

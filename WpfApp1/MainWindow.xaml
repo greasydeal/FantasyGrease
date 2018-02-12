@@ -1,12 +1,127 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="FantasyGrease.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:FantasyGrease"
+        xmlns:controls="clr-namespace:FantasyGrease.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="FantasyGrease" Height="500" Width="720" BorderBrush="#FF3A3A3A" Background="#FF595959" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Icon="FG.ico">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Orange"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
+        <!-- Column Defs -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="5" />
+        </Grid.ColumnDefinitions>
+        <!-- Row Defs -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+
+        <!-- Title Bar Rect -->
+        <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" MouseDown="TitleBar_MouseDown">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="91" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFE28B0D" Offset="0.467"/>
+                    <GradientStop Color="#FFFFC500" Offset="1"/>
+                    <GradientStop Color="#FFECB668" Offset="0.803"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <!-- Title Bar Text -->
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <Image Source="../../FG.ico" Height="25" Width="25" VerticalAlignment="Center" MouseDown="TitleBar_MouseDown" DockPanel.Dock="Left"/>
+            <TextBlock Name="titleText" VerticalAlignment="Center" Text="FantasyGrease" MouseDown="TitleBar_MouseDown" FontSize="16" FontStretch="ExtraExpanded" DockPanel.Dock="Left"/>
+        </DockPanel>
+
+        <!-- Win Control Buttons Grid -->
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Win Control Buttons Grid -->
+            <Button Name="minimize_Button" Grid.Row="0" Grid.Column="1" Height="20" Width="20" VerticalContentAlignment="Center" Content="-" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" OpacityMask="Black" Opacity="0.5"/>
+            <Button Name="collapse_Button" Grid.Row="0" Grid.Column="0" Height="20" Width="20" VerticalContentAlignment="Bottom" Content="^" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"/>
+            <Button Name="close" Grid.Row="0" Grid.Column="2" Height="20" Width="20" VerticalContentAlignment="Center" Content="X" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"  Click="Close_Click" />
+        </Grid>
+
+       
+        <!-- Body Grid -->
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+            <!-- Body Column Defs -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="180" />
+            </Grid.ColumnDefinitions>
+            <!-- Body Row Defs -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="130" />
+            </Grid.RowDefinitions>
+
+            <!-- Dock panel for hook char button and staus box -->
+            <DockPanel Grid.Column="2">
+                <Button Name="hookChar_Button" Content="Hook Character" Background="IndianRed" Height="20"  Margin="5,25,5,5" DockPanel.Dock="Top" Click="hookChar_Button_Click"/>
+
+                <!-- Status Group Box -->
+                <GroupBox Name="statusBox" DockPanel.Dock="Top" Background="#FF3C3C3C" Foreground="White" Header="Status">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Top" Text="Player" HorizontalAlignment="Center"/>
+                        <controls:StatusBoxViewPlayer HorizontalAlignment="Left" DockPanel.Dock="Top"/>
+                        <TextBlock DockPanel.Dock="Top" Text="Bots" HorizontalAlignment="Center"/>
+                        <controls:StatusBoxViewBots HorizontalAlignment="Left" DockPanel.Dock="Top"/>
+                    </DockPanel>
+                </GroupBox>
+            </DockPanel>
+            
+            <!-- Speed Hack Box -->
+            <GroupBox Name="speedBox" Grid.Column="2" Grid.Row="2" Height="120" Background="#FF3C3C3C" Foreground="White" Header="Speed Hack">
+
+            </GroupBox>
+
+            <!-- Tab Control Box -->
+            <TabControl Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="5" Background="#FF3C3C3C">
+                <TabItem Header="Farm">
+                    
+                </TabItem>
+                <TabItem Header="Cure">
+                    
+                </TabItem>
+                <TabItem Header="Nav">
+
+                </TabItem>
+                <TabItem Header="Crafting">
+                    
+                </TabItem>
+                <TabItem Header="Settings">
+                    
+                </TabItem>    
+                
+            </TabControl>
+        </Grid>
         
     </Grid>
 </Window>
