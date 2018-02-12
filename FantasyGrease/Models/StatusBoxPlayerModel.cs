@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FantasyGrease.Models
 {
-	public class StatusBoxPlayer : INotifyPropertyChanged
+	public class StatusBoxPlayerModel : INotifyPropertyChanged
 	{
 
 		private MainWindow mainWindow = App.Current.Windows[0] as MainWindow;
@@ -25,7 +25,7 @@ namespace FantasyGrease.Models
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		public StatusBoxPlayer()
+		public StatusBoxPlayerModel()
 		{
 			mainWindow.StatusBoxHandshake(this);
 		}

@@ -26,7 +26,7 @@ namespace FantasyGrease
 	{
 
 		EliteAPI apiHook = null;
-		StatusBoxPlayer statusBoxPlayer;
+		StatusBoxPlayerModel statusBoxPlayer;
 
 		public MainWindow()
 		{
@@ -45,7 +45,7 @@ namespace FantasyGrease
 
 		}
 
-		public void StatusBoxHandshake(StatusBoxPlayer passedBox)
+		public void StatusBoxHandshake(StatusBoxPlayerModel passedBox)
 		{
 			statusBoxPlayer = passedBox;
 		}

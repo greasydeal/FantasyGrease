@@ -9,10 +9,10 @@
              d:DesignHeight="250" d:DesignWidth="180">
 
     <Control.Resources>
-        <values:StatusBoxPlayer x:Key="statusBoxPlayer"/>
+        <values:StatusBoxPlayerModel x:Key="statusBoxPlayerModel"/>
     </Control.Resources>
     
-    <Grid DataContext="{Binding Source={StaticResource statusBoxPlayer}}">
+    <Grid DataContext="{Binding Source={StaticResource statusBoxPlayerModel}}">
         <!--Grid Col Defs-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
