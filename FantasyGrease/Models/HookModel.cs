@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using FantasyGrease;
-using FantasyGrease.Views;
 using FantasyGrease.ViewModels;
 using EliteMMO.API;
 
@@ -23,14 +22,13 @@ namespace FantasyGrease.Models
 
 		public void HookChar(int procID)
 		{
-			HookWindow HookWindow = App.Current.Windows[1] as HookWindow;
 			EliteAPI instance;
 
 			try
 			{
 				instance = new EliteAPI(procID);
 				hookViewModel.CatchAPIHook(instance);
-				HookWindow.Close();
+				hookViewModel.CloseWindow();
 			}
 			catch
 			{

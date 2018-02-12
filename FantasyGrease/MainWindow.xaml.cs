@@ -46,8 +46,8 @@ namespace FantasyGrease
 		{
 			if (apiHook == null)
 			{
-				HookWindow hookWindow = new HookWindow();
-				hookWindow.Show();
+				HookView hookView = new HookView();
+				hookView.Show();
 				this.IsEnabled = false;
 			}
 		}

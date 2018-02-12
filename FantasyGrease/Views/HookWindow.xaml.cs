@@ -21,16 +21,16 @@ namespace FantasyGrease.Views
 	/// <summary>
 	/// Interaction logic for HookWindow.xaml
 	/// </summary>
-	public partial class HookWindow : Window
+	public partial class HookView : Window
 	{
-		//private HookModel hookModel = new HookModel();
+
         private HookViewModel hookViewModel;
 		//Process[] procCheck = Process.GetProcessesByName("pol");
 
 		/// <summary>
 		/// Hook Window Class Startup
 		/// </summary>
-		public HookWindow()
+		public HookView()
 		{
 			InitializeComponent();
             hookViewModel = new HookViewModel(this);

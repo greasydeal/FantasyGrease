@@ -17,12 +17,14 @@ namespace FantasyGrease.ViewModels
 
         private EliteAPI apiHook;
         private HookModel hookModel;
-        private HookWindow hookWindow;
+        private HookView hookView;
+        private Process[] procCheck;
 
-        public HookViewModel(HookWindow window)
+        public HookViewModel(HookView window)
         {
             hookModel = new HookModel(this);
-            hookWindow = window;
+            hookView = window;
+            procCheck = Process.GetProcessesByName("pol");
         }
 
         public void CatchAPIHook(EliteAPI core)
@@ -41,8 +43,8 @@ namespace FantasyGrease.ViewModels
 
         public void HookChar()
         {
-            var procCheck = Process.GetProcessesByName("pol");
-            int selectionIndex = hookWindow.processList.SelectedIndex;
+            //var procCheck = Process.GetProcessesByName("pol");
+            int selectionIndex = hookView.processList.SelectedIndex;
             if (selectionIndex >= 0)
             {
                 var selectedProcess = procCheck.ElementAt(selectionIndex);
@@ -51,6 +53,11 @@ namespace FantasyGrease.ViewModels
             }
             else { MessageBox.Show("No character selected!"); }
             
+        }
+
+        public void CloseWindow()
+        {
+            hookView.Close();
         }
     }
 }
