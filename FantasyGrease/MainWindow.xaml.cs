@@ -42,6 +42,7 @@ namespace FantasyGrease
 			this.hookChar_Button.Background = Brushes.LawnGreen;
 			this.hookChar_Button.Content = apiHook.Player.Name.ToString();
 			statusBoxPlayer.Hp = apiHook.Player.HP.ToString();
+            statusBoxPlayer.Mp = apiHook.Player.MP.ToString();
 
 		}
 

@@ -23,7 +23,18 @@ namespace FantasyGrease.Models
 			}
 		}
 
-		public event PropertyChangedEventHandler PropertyChanged;
+        private string mp;
+        public string Mp
+        {
+            get { return mp; }
+            set
+            {
+                mp = value;
+                OnPropertyChanged("mp");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 		public StatusBoxPlayerModel()
 		{
