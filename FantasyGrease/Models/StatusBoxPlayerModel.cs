@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FantasyGrease.ViewModels;
 
 namespace FantasyGrease.Models
 {
 	public class StatusBoxPlayerModel : INotifyPropertyChanged
 	{
-
-		private MainWindow mainWindow = App.Current.Windows[0] as MainWindow;
+        StatusBoxPlayerModelView statusBoxPlayerModelView = new StatusBoxPlayerModelView();
 
 		private string hp;
 		public string Hp
@@ -38,7 +38,7 @@ namespace FantasyGrease.Models
 
 		public StatusBoxPlayerModel()
 		{
-			mainWindow.StatusBoxHandshake(this);
+			statusBoxPlayerModelView.StatusBoxHandshake(this);
 		}
 
 		private void OnPropertyChanged(string propertyName)

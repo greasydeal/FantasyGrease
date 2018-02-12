@@ -26,29 +26,10 @@ namespace FantasyGrease
 	{
 
 		EliteAPI apiHook = null;
-		StatusBoxPlayerModel statusBoxPlayer;
 
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-
-		public void CatchAPIHook(EliteAPI core)
-		{
-
-			apiHook = core;
-			this.titleText.Text = apiHook.Player.Name.ToString() + " - FantasyGrease";
-			this.Title = apiHook.Player.Name.ToString() + " - FantasyGrease";
-			this.hookChar_Button.Background = Brushes.LawnGreen;
-			this.hookChar_Button.Content = apiHook.Player.Name.ToString();
-			statusBoxPlayer.Hp = apiHook.Player.HP.ToString();
-            statusBoxPlayer.Mp = apiHook.Player.MP.ToString();
-
-		}
-
-		public void StatusBoxHandshake(StatusBoxPlayerModel passedBox)
-		{
-			statusBoxPlayer = passedBox;
 		}
 
 		private void Close_Click(object sender, RoutedEventArgs e)

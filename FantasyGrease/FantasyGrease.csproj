@@ -34,8 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>FantasyGrease.App</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -85,6 +84,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\StatusBoxPlayerModel.cs" />
+    <Compile Include="ViewModels\HookViewModel.cs" />
+    <Compile Include="ViewModels\StatusBoxPlayerModelView.cs" />
     <Compile Include="Views\HookWindow.xaml.cs">
       <DependentUpon>HookWindow.xaml</DependentUpon>
     </Compile>
@@ -151,7 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TextFile1.txt" />
