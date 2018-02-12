@@ -51,7 +51,7 @@
         <DockPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="auto" Margin="0,5">
             <TextBlock Text="Select a character to hook:" DockPanel.Dock="Top" Foreground="White"/>
             <Button Name ="hook_Button" Content="Hook" Height="30" DockPanel.Dock="Bottom" Click="Hook_Button_Click"/>
-            <ListBox Name="ProcessList" Height="auto" Background="#FF3C3C3C" Foreground="White"></ListBox>
+            <ListBox Name="processList" Height="auto" Background="#FF3C3C3C" Foreground="White"></ListBox>
         </DockPanel>
 
     </Grid>

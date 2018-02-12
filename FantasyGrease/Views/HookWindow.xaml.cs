@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using FantasyGrease.Models;
+using FantasyGrease.ViewModels;
 using EliteMMO.API;
 
 namespace FantasyGrease.Views
@@ -22,8 +23,9 @@ namespace FantasyGrease.Views
 	/// </summary>
 	public partial class HookWindow : Window
 	{
-		private Hook apiHook = new Hook();
-		Process[] procCheck = Process.GetProcessesByName("pol");
+		//private HookModel hookModel = new HookModel();
+        private HookViewModel hookViewModel;
+		//Process[] procCheck = Process.GetProcessesByName("pol");
 
 		/// <summary>
 		/// Hook Window Class Startup
@@ -31,17 +33,20 @@ namespace FantasyGrease.Views
 		public HookWindow()
 		{
 			InitializeComponent();
-			
-			//var procCheck = Process.GetProcessesByName("pol");
-			var procCount = this.procCheck.Count();
+            hookViewModel = new HookViewModel(this);
+
+            /*
+            var procCheck = Process.GetProcessesByName("pol");
+            var procCount = this.procCheck.Count();
 
 			if (procCount != 0)
 			{
 				foreach (var id in this.procCheck)
 				{
-					ProcessList.Items.Add(id.MainWindowTitle.ToString());
+					processList.Items.Add(id.MainWindowTitle.ToString());
 				}
 			}
+            */
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -63,14 +68,17 @@ namespace FantasyGrease.Views
 
 		private void Hook_Button_Click(object sender, RoutedEventArgs e)
 		{
-			int selectionIndex = ProcessList.SelectedIndex;
+            hookViewModel.HookChar();
+            /*
+            int selectionIndex = ProcessList.SelectedIndex;
 			if (selectionIndex >= 0)
 			{
 				var selectedProcess = this.procCheck.ElementAt(selectionIndex);
 				int procId = selectedProcess.Id;
-				apiHook.HookChar(procId);
+				hookModel.HookChar(procId);
 			}
 			else { MessageBox.Show("No character selected!"); }
+            */
 		}
 
 		private void Window_Unloaded(object sender, RoutedEventArgs e)

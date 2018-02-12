@@ -11,14 +11,14 @@ using EliteMMO.API;
 
 namespace FantasyGrease.Models
 {
-	class Hook
+	class HookModel
 	{
-		private MainWindow MainWindow = App.Current.Windows[0] as MainWindow;
+        //private MainWindow MainWindow = App.Current.Windows[0] as MainWindow;
         private HookViewModel hookViewModel;
 
-		public Hook()
+		public HookModel(HookViewModel viewModel)
 		{
-
+            hookViewModel = viewModel;
 		}
 
 		public void HookChar(int procID)
