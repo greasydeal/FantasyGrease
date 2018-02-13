@@ -9,6 +9,7 @@ using EliteMMO.API;
 using FantasyGrease.ViewModels;
 using System.Windows;
 
+
 namespace FantasyGrease.Models
 {
     public class StatusBoxPlayerModel : INotifyPropertyChanged
@@ -36,6 +37,19 @@ namespace FantasyGrease.Models
             {
                 mp = value;
                 OnPropertyChanged("mp");
+            }
+        }
+
+        public StatusBoxPlayerModel()
+        {
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+            {
+                this.hp = "N/A";
+                this.mp = "N/A";
+            }
+            else
+            {
+                UpdateTimerStart();
             }
         }
 

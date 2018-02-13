@@ -29,8 +29,6 @@ namespace FantasyGrease.Views
 			InitializeComponent();
             StatusBoxPlayerViewModel viewModel = new StatusBoxPlayerViewModel();
             this.DataContext = viewModel;
-            viewModel.UpdateTimerStart();
         }
-
-	}
+    }
 }
