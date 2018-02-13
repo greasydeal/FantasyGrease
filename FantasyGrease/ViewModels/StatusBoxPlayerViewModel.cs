@@ -23,7 +23,7 @@ namespace FantasyGrease.ViewModels
 			statusBoxPlayerModel.Mp = apiHook.Player.MP.ToString();
 		}
 
-        public void UpdateTimerStart()
+     /*   public void UpdateTimerStart()
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_tick);
@@ -39,6 +39,7 @@ namespace FantasyGrease.ViewModels
                 //Update();
             }
         }
+        */
 
     }
 }
