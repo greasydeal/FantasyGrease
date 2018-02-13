@@ -48,8 +48,8 @@
         <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Text="Action:" VerticalAlignment="Center" Foreground="White"/>
         
         <!-- Status Values -->
-        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Mp}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Mp, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valueZone" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FantasyGrease.ViewModels;
 
+
 namespace FantasyGrease.Views
 {
 	/// <summary>
@@ -26,6 +27,10 @@ namespace FantasyGrease.Views
 		public StatusBoxViewPlayer()
 		{
 			InitializeComponent();
-		}
+            StatusBoxPlayerViewModel viewModel = new StatusBoxPlayerViewModel();
+            this.DataContext = viewModel;
+            viewModel.UpdateTimerStart();
+        }
+
 	}
 }

@@ -33,7 +33,7 @@ namespace FantasyGrease.Classes.Timers
 			apiHook = app.mainHook.apiHook;
 			if (apiHook != null)
 			{
-				statusBoxPlayerViewModel.Update(playerStatusBox);
+				//statusBoxPlayerViewModel.Update(playerStatusBox);
 			}
 		}
 	}

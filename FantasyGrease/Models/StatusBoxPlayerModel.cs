@@ -4,34 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
+using EliteMMO.API;
 using FantasyGrease.ViewModels;
-using FantasyGrease.Classes.Timers;
+using System.Windows;
 
 namespace FantasyGrease.Models
 {
-	public class StatusBoxPlayerModel : INotifyPropertyChanged
-	{
-		//StatusBoxPlayerViewModel statusBoxPlayerModelView;
-		public TimerStatusBoxPlayer timerStatusBox;
+    public class StatusBoxPlayerModel : INotifyPropertyChanged
+    {
+        //StatusBoxPlayerViewModel statusBoxPlayerModelView;
+        private App app = App.Current as App;
+        EliteAPI apiHook;
 
-		public StatusBoxPlayerModel()
-		{
-			timerStatusBox = new TimerStatusBoxPlayer();
-			timerStatusBox.Start(this);
-		}
+        private string hp = "N/A";
+        public string Hp
+        {
+            get { return hp; }
+            set
+            {
+                hp = value;
+                OnPropertyChanged("hp");
+            }
+        }
 
-		private string hp;
-		public string Hp
-		{
-			get { return hp; }
-			set
-			{
-				hp = value;
-				OnPropertyChanged("hp");
-			}
-		}
-
-        private string mp;
+        private string mp = "N/A";
         public string Mp
         {
             get { return mp; }
@@ -40,6 +37,42 @@ namespace FantasyGrease.Models
                 mp = value;
                 OnPropertyChanged("mp");
             }
+        }
+
+        private bool timerStart = false;
+        public bool TimerStart
+        {
+            get { return timerStart; }
+            set
+            {
+                timerStart = value;
+                UpdateTimerStart();
+            }
+        }
+
+        public void UpdateTimerStart()
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += new EventHandler(timer_tick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+        }
+
+        private void timer_tick(object sender, EventArgs e)
+        {
+            apiHook = app.mainHook.apiHook;
+            if (apiHook != null)
+            {
+                MessageBox.Show("Update test");
+                Update();
+            }
+        }
+
+        private void Update()
+        {
+            apiHook = app.mainHook.apiHook;
+            Hp = apiHook.Player.HP.ToString();
+            Mp = apiHook.Player.MP.ToString();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
