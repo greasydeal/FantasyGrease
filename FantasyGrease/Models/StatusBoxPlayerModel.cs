@@ -77,7 +77,7 @@ namespace FantasyGrease.Models
             apiHook = app.mainHook.apiHook;
             if (apiHook != null)
             {
-                MessageBox.Show("Update test");
+           
                 Update();
             }
         }
