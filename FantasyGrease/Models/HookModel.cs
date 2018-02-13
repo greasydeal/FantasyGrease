@@ -12,8 +12,8 @@ namespace FantasyGrease.Models
 {
 	class HookModel
 	{
-        //private MainWindow MainWindow = App.Current.Windows[0] as MainWindow;
         private HookViewModel hookViewModel;
+		private App app = App.Current as App;
 
 		public HookModel(HookViewModel viewModel)
 		{
@@ -27,12 +27,12 @@ namespace FantasyGrease.Models
 			try
 			{
 				instance = new EliteAPI(procID);
-				hookViewModel.CatchAPIHook(instance);
+				app.mainHook.SetHook(instance);
 				hookViewModel.CloseWindow();
 			}
 			catch
 			{
-				System.Windows.MessageBox.Show("Unable to hook character.\nAre you running as administrator?");
+				hookViewModel.HookFailed();
 			}
 		}
 	}

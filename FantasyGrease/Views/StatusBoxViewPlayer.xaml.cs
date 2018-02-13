@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FantasyGrease.ViewModels;
 
 namespace FantasyGrease.Views
 {
@@ -20,6 +21,8 @@ namespace FantasyGrease.Views
 	/// </summary>
 	public partial class StatusBoxViewPlayer : UserControl
 	{
+		//StatusBoxPlayerViewModel statusBoxPlayerViewModel = new StatusBoxPlayerViewModel();
+
 		public StatusBoxViewPlayer()
 		{
 			InitializeComponent();

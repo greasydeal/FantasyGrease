@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
-using FantasyGrease.Models;
+using FantasyGrease.ViewModels;
 using FantasyGrease.Views;
 using EliteMMO.API;
 
@@ -26,6 +26,7 @@ namespace FantasyGrease
 	{
 
 		EliteAPI apiHook = null;
+		//MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
 
 		public MainWindow()
 		{

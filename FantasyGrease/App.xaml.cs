@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using FantasyGrease.Classes;
 
 namespace FantasyGrease
 {
@@ -13,5 +14,6 @@ namespace FantasyGrease
 	/// </summary>
 	public partial class App : Application
 	{
+		public MainHook mainHook = new MainHook();
 	}
 }

@@ -25,7 +25,17 @@ namespace FantasyGrease.ViewModels
             hookModel = new HookModel(this);
             hookView = window;
             procCheck = Process.GetProcessesByName("pol");
-        }
+
+			var procCount = this.procCheck.Count();
+
+			if (procCount != 0)
+			{
+				foreach (var id in this.procCheck)
+				{
+					window.processList.Items.Add(id.MainWindowTitle.ToString());
+				}
+			}
+		}
 
         public void CatchAPIHook(EliteAPI core)
         {
@@ -54,6 +64,11 @@ namespace FantasyGrease.ViewModels
             else { MessageBox.Show("No character selected!"); }
             
         }
+
+		public void HookFailed()
+		{
+			System.Windows.MessageBox.Show("Unable to hook character.\nAre you running as administrator?");
+		}
 
         public void CloseWindow()
         {

@@ -5,12 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FantasyGrease.ViewModels;
+using FantasyGrease.Classes.Timers;
 
 namespace FantasyGrease.Models
 {
 	public class StatusBoxPlayerModel : INotifyPropertyChanged
 	{
-        StatusBoxPlayerModelView statusBoxPlayerModelView = new StatusBoxPlayerModelView();
+		//StatusBoxPlayerViewModel statusBoxPlayerModelView;
+		public TimerStatusBoxPlayer timerStatusBox;
+
+		public StatusBoxPlayerModel()
+		{
+			timerStatusBox = new TimerStatusBoxPlayer();
+			timerStatusBox.Start(this);
+		}
 
 		private string hp;
 		public string Hp
@@ -35,11 +43,6 @@ namespace FantasyGrease.Models
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-		public StatusBoxPlayerModel()
-		{
-			statusBoxPlayerModelView.StatusBoxHandshake(this);
-		}
 
 		private void OnPropertyChanged(string propertyName)
 		{
