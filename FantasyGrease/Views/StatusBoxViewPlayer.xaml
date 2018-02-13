@@ -39,24 +39,24 @@
         <!-- Status Labels -->
         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Text="HP:" VerticalAlignment="Center" Foreground="White"/>
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Text="MP:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="Zone:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Text="Pos X:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Text="Pos Y:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Text="Pos Z:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Text="Target:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Text="Tar. ID:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="Job:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Text="Zone:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Text="Pos X:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Text="Pos Y:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Text="Pos Z:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Text="Target:" VerticalAlignment="Center" Foreground="White"/>
         <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Text="Action:" VerticalAlignment="Center" Foreground="White"/>
         
         <!-- Status Values -->
-        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Mp, Mode=TwoWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueZone" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valuePosZ" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueTarget" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueTargetId" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueAction" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="N/A" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Mp, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueJob" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding Job, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueZone" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="{Binding Zone, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="{Binding PosX, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="{Binding PosY, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valuePosZ" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="{Binding PosZ, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueTargetInfo" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="{Binding TargetInfo, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueAction" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="{Binding Action, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
 
     </Grid>
 </UserControl>
