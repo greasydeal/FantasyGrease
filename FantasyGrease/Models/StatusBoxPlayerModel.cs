@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Threading;
 using EliteMMO.API;
 using FantasyGrease.ViewModels;
@@ -148,13 +149,13 @@ namespace FantasyGrease.Models
 
         public void UpdateTimerStart()
         {
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_tick);
-            timer.Interval = new TimeSpan(0, 0, 0, 300);
+            Timer timer = new Timer();
+            timer.Interval = 300;
+			timer.Elapsed += TimerTick;
             timer.Start(); 
         }
 
-        private void timer_tick(object sender, EventArgs e)
+        private void TimerTick(object sender, EventArgs e)
         {
             apiHook = app.mainHook.apiHook;
             if (apiHook != null)
