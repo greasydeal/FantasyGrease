@@ -98,7 +98,7 @@ namespace FantasyGrease.Models
         private string targetInfo;
         public string TargetInfo
         {
-            get { return zone; }
+            get { return targetInfo; }
             set
             {
                 targetInfo = value;
@@ -106,9 +106,19 @@ namespace FantasyGrease.Models
             }
         }
 
-        public StatusBoxPlayerModel()
-        {
+		private string action;
+		public string Action
+		{
+			get { return action; }
+			set
+			{
+				action = value;
+				OnPropertyChanged("action");
+			}
+		}
 
+		public StatusBoxPlayerModel()
+        {
             this.hp = "N/A";
             this.mp = "N/A";
             this.job = "N/A";
@@ -117,9 +127,12 @@ namespace FantasyGrease.Models
             this.posY = "N/A";
             this.posZ = "N/A";
             this.targetInfo = "N/A";
+			this.action = "N/A";
 
-            UpdateTimerStart();
-          
+			if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+			{
+				UpdateTimerStart();
+			}
         }
 
         private bool timerStart = false;
@@ -129,7 +142,7 @@ namespace FantasyGrease.Models
             set
             {
                 timerStart = value;
-                UpdateTimerStart();
+               // UpdateTimerStart();
             }
         }
 
@@ -137,8 +150,8 @@ namespace FantasyGrease.Models
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Tick += new EventHandler(timer_tick);
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Start();
+            timer.Interval = new TimeSpan(0, 0, 0, 300);
+            timer.Start(); 
         }
 
         private void timer_tick(object sender, EventArgs e)
