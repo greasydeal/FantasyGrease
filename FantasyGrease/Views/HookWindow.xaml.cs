@@ -35,16 +35,19 @@ namespace FantasyGrease.Views
             viewModel = new HookViewModel(this, mainWindow);
 		}
 
+		/// Add detected POL processes to list on hook window
 		public void AddProcess(string procName)
 		{
 			processList.Items.Add(procName);
 		}
 
+		/// No Character is selected when clicking hook
 		public void NoCharSelected()
 		{
 			MessageBox.Show("No character selected!");
 		}
 
+		/// API failed to hook after clicking hook
 		public void HookFailed()
 		{
 			MessageBox.Show("Unable to hook character.\nAre you running as administrator?");
