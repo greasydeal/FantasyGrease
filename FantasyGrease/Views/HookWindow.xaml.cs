@@ -21,32 +21,33 @@ namespace FantasyGrease.Views
 	/// <summary>
 	/// Interaction logic for HookWindow.xaml
 	/// </summary>
-	public partial class HookView : Window
+	public partial class HookWindow : Window
 	{
 
-        private HookViewModel hookViewModel;
-		//Process[] procCheck = Process.GetProcessesByName("pol");
+        private HookViewModel viewModel;
 
 		/// <summary>
 		/// Hook Window Class Startup
 		/// </summary>
-		public HookView()
+		public HookWindow(MainWindow mainWindow)
 		{
 			InitializeComponent();
-            hookViewModel = new HookViewModel(this);
+            viewModel = new HookViewModel(this, mainWindow);
+		}
 
-            /*
-            var procCheck = Process.GetProcessesByName("pol");
-            var procCount = this.procCheck.Count();
+		public void AddProcess(string procName)
+		{
+			processList.Items.Add(procName);
+		}
 
-			if (procCount != 0)
-			{
-				foreach (var id in this.procCheck)
-				{
-					processList.Items.Add(id.MainWindowTitle.ToString());
-				}
-			}
-            */
+		public void NoCharSelected()
+		{
+			MessageBox.Show("No character selected!");
+		}
+
+		public void HookFailed()
+		{
+			MessageBox.Show("Unable to hook character.\nAre you running as administrator?");
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -61,6 +62,11 @@ namespace FantasyGrease.Views
 			this.Close();
 		}
 
+		public void CloseWindow()
+		{
+			this.Close();
+		}
+
 		private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 			if (e.ChangedButton == MouseButton.Left) this.DragMove();
@@ -68,17 +74,7 @@ namespace FantasyGrease.Views
 
 		private void Hook_Button_Click(object sender, RoutedEventArgs e)
 		{
-            hookViewModel.HookChar();
-            /*
-            int selectionIndex = ProcessList.SelectedIndex;
-			if (selectionIndex >= 0)
-			{
-				var selectedProcess = this.procCheck.ElementAt(selectionIndex);
-				int procId = selectedProcess.Id;
-				hookModel.HookChar(procId);
-			}
-			else { MessageBox.Show("No character selected!"); }
-            */
+            viewModel.HookChar();
 		}
 
 		private void Window_Unloaded(object sender, RoutedEventArgs e)

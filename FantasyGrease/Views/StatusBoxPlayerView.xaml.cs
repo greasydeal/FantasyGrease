@@ -20,15 +20,13 @@ namespace FantasyGrease.Views
 	/// <summary>
 	/// Interaction logic for StatusBoxView.xaml
 	/// </summary>
-	public partial class StatusBoxViewPlayer : UserControl
+	public partial class StatusBoxPlayerView : UserControl
 	{
 		//StatusBoxPlayerViewModel statusBoxPlayerViewModel = new StatusBoxPlayerViewModel();
 
-		public StatusBoxViewPlayer()
+		public StatusBoxPlayerView()
 		{
 			InitializeComponent();
-            StatusBoxPlayerViewModel viewModel = new StatusBoxPlayerViewModel();
-            this.DataContext = viewModel;
         }
     }
 }

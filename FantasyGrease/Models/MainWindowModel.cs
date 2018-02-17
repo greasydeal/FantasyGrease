@@ -9,27 +9,17 @@ using FantasyGrease.ViewModels;
 
 namespace FantasyGrease.Models
 {
-	public class MainWindowModel : INotifyPropertyChanged
+	public class MainWindowModel
 	{
-		private string windowTitle;
+		private string _windowTitle;
 		public string WindowTitle
 		{
-			get { return windowTitle; }
+			get { return _windowTitle; }
 			set
 			{
-				windowTitle = value;
-				OnPropertyChanged("windowTitle");
+				_windowTitle = value;
 			}
 		}
 		
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void OnPropertyChanged(string propertyName)
-		{
-			if (PropertyChanged != null)
-			{
-				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
 	}
 }

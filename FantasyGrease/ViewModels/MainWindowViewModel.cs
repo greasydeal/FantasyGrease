@@ -2,23 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using FantasyGrease.Models;
 using FantasyGrease.Views;
-using EliteMMO.API;
 
 namespace FantasyGrease.ViewModels
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : INotifyPropertyChanged
 	{
-		MainWindow mainWindow = App.Current.Windows[0] as MainWindow;
-		EliteAPI apiHook;
 
-		public void Hooked()
+		private string _windowTitle;
+		public string WindowTitle
 		{
-			mainWindow.hookChar_Button.Background = Brushes.LawnGreen;
-			mainWindow.hookChar_Button.Content = apiHook.Player.Name.ToString();
+			get { return _windowTitle; }
+
+			set
+			{
+				_windowTitle = value;
+				OnPropertyChanged("windowTitle");
+			}
 		}
-    }
+
+		public MainWindowViewModel()
+		{
+			this.WindowTitle = "FantasyGrease";
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void OnPropertyChanged(string propertyName)
+		{
+			if (PropertyChanged != null)
+			{
+				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
 }

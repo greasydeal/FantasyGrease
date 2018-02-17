@@ -30,7 +30,7 @@ namespace FantasyGrease.Classes.Timers
 			apiHook = app.mainHook.apiHook;
 			if (apiHook != null)
 			{
-				mainWindowViewModel.Hooked();
+				
 			}
 		}
 	}

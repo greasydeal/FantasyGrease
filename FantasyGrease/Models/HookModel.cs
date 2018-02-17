@@ -14,26 +14,33 @@ namespace FantasyGrease.Models
 	{
         private HookViewModel hookViewModel;
 		private App app = App.Current as App;
+		EliteAPI apiHook;
 
 		public HookModel(HookViewModel viewModel)
 		{
             hookViewModel = viewModel;
 		}
 
-		public void HookChar(int procID)
+		public bool HookChar(int procID)
 		{
-			EliteAPI instance;
-
 			try
 			{
-				instance = new EliteAPI(procID);
-				app.mainHook.SetHook(instance);
+				apiHook = new EliteAPI(procID);
+				app.mainHook.SetHook(apiHook);
 				hookViewModel.CloseWindow();
+				return true;
 			}
 			catch
 			{
 				hookViewModel.HookFailed();
+				return false;
 			}
 		}
+
+		public string GetCharName()
+		{
+			return apiHook.Player.Name.ToString();
+		}
+
 	}
 }

@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="FantasyGrease.Views.StatusBoxViewPlayer"
+﻿<UserControl x:Class="FantasyGrease.Views.StatusBoxPlayerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FantasyGrease.Views"
-             xmlns:values="clr-namespace:FantasyGrease.Models"
+             xmlns:values="clr-namespace:FantasyGrease.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="180">
 
     <Control.Resources>
-        <values:StatusBoxPlayerModel x:Key="statusBoxPlayerModel"/>
+        <values:StatusBoxPlayerViewModel x:Key="model"/>
     </Control.Resources>
-    
-    <Grid DataContext="{Binding Source={StaticResource statusBoxPlayerModel}}">
+
+    <Grid DataContext="{Binding Source={StaticResource model}}">
         <!--Grid Col Defs-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -55,7 +55,7 @@
         <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="{Binding PosX, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="{Binding PosY, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valuePosZ" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="{Binding PosZ, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueTargetInfo" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="{Binding TargetInfo, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <TextBlock Name="valueTargetInfo" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="{Binding Target, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
         <TextBlock Name="valueAction" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="{Binding Action, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
 
     </Grid>

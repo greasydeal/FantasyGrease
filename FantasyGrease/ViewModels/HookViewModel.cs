@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Windows;
 using System.Threading.Tasks;
 using FantasyGrease.Models;
-using FantasyGrease.ViewModels;
 using FantasyGrease.Views;
-using EliteMMO.API;
 
 namespace FantasyGrease.ViewModels
 {
     class HookViewModel
     {
 
-        private EliteAPI apiHook;
+		private MainWindow mainWindow;
         private HookModel hookModel;
-        private HookView hookView;
+        private HookWindow hookWindow;
         private Process[] procCheck;
 
-        public HookViewModel(HookView window)
+        public HookViewModel(HookWindow window, MainWindow main)
         {
             hookModel = new HookModel(this);
-            hookView = window;
+            hookWindow = window;
+			mainWindow = main;
+
             procCheck = Process.GetProcessesByName("pol");
 
 			var procCount = this.procCheck.Count();
@@ -32,47 +31,36 @@ namespace FantasyGrease.ViewModels
 			{
 				foreach (var id in this.procCheck)
 				{
-					window.processList.Items.Add(id.MainWindowTitle.ToString());
+					hookWindow.AddProcess(id.MainWindowTitle.ToString());
 				}
 			}
 		}
 
-        public void CatchAPIHook(EliteAPI core)
-        {
-
-            apiHook = core;
-            MessageBox.Show("Hook successful to " + apiHook.Player.Name.ToString());
-           /* mainWindow.titleText.Text = apiHook.Player.Name.ToString() + " - FantasyGrease";
-            mainWindow.Title = apiHook.Player.Name.ToString() + " - FantasyGrease";
-            mainWindow.hookChar_Button.Background = Brushes.LawnGreen;
-            mainWindow.hookChar_Button.Content = apiHook.Player.Name.ToString();
-            statusBoxPlayer.Hp = apiHook.Player.HP.ToString();
-            statusBoxPlayer.Mp = apiHook.Player.MP.ToString(); */
-
-        }
-
         public void HookChar()
         {
-            //var procCheck = Process.GetProcessesByName("pol");
-            int selectionIndex = hookView.processList.SelectedIndex;
+            int selectionIndex = hookWindow.processList.SelectedIndex;
             if (selectionIndex >= 0)
             {
                 var selectedProcess = procCheck.ElementAt(selectionIndex);
                 int procId = selectedProcess.Id;
-                hookModel.HookChar(procId);
-            }
-            else { MessageBox.Show("No character selected!"); }
+
+				if (hookModel.HookChar(procId))
+				{
+					mainWindow.Hooked(hookModel.GetCharName());
+				}
+			}
+            else { hookWindow.NoCharSelected(); }
             
         }
 
 		public void HookFailed()
 		{
-			System.Windows.MessageBox.Show("Unable to hook character.\nAre you running as administrator?");
+			hookWindow.HookFailed();
 		}
 
         public void CloseWindow()
         {
-            hookView.Close();
+            hookWindow.CloseWindow();
         }
     }
 }

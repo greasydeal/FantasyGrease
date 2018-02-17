@@ -13,164 +13,147 @@ using System.Windows;
 
 namespace FantasyGrease.Models
 {
-    public class StatusBoxPlayerModel : INotifyPropertyChanged
+    public class StatusBoxPlayerModel
     {
-        //StatusBoxPlayerViewModel statusBoxPlayerModelView;
+        
         private App app = App.Current as App;
         EliteAPI apiHook;
+		StatusBoxPlayerViewModel viewModel;
 
-        private string hp;
+		public StatusBoxPlayerModel(StatusBoxPlayerViewModel vm)
+		{
+			viewModel = vm;
+		}
+
+		/// <summary>
+		/// Variables
+		/// </summary>
+		#region Variables Region
+		private string _hp;
         public string Hp
         {
-            get { return hp; }
+            get
+			{ return _hp; }
             set
             {
-                hp = value;
-                OnPropertyChanged("hp");
+				_hp = value;
             }
         }
 
-        private string mp;
+        private string _mp;
         public string Mp
         {
-            get { return mp; }
+            get { return _mp; }
             set
             {
-                mp = value;
-                OnPropertyChanged("mp");
+                _mp = value;
             }
         }
 
-        private string job;
+        private string _job;
         public string Job
         {
-            get { return job; }
+            get { return _job; }
             set
             {
-                job = value;
-                OnPropertyChanged("job");
+                _job = value;
             }
         }
 
-        private string zone;
+        private string _zone;
         public string Zone
         {
-            get { return zone; }
+            get { return _zone; }
             set
             {
-                zone = value;
-                OnPropertyChanged("zone");
+                _zone = value;
             }
         }
 
-        private string posX;
+        private string _posX;
         public string PosX
         {
-            get { return posX; }
+            get { return _posX; }
             set
             {
-                posX = value;
-                OnPropertyChanged("posX");
+                _posX = value;
             }
         }
 
-        private string posY;
+        private string _posY;
         public string PosY
         {
-            get { return posY; }
+            get { return _posY; }
             set
             {
-                posY = value;
-                OnPropertyChanged("posY");
+                _posY = value;
             }
         }
 
-        private string posZ;
+        private string _posZ;
         public string PosZ
         {
-            get { return posZ; }
+            get { return _posZ; }
             set
             {
-                posZ = value;
-                OnPropertyChanged("posZ");
+                _posZ = value;
             }
         }
 
-        private string targetInfo;
-        public string TargetInfo
+        private string _target;
+        public string Target
         {
-            get { return targetInfo; }
+            get { return _target; }
             set
             {
-                targetInfo = value;
-                OnPropertyChanged("targetInfo");
+				_target = value;
             }
         }
 
-		private string action;
+		private string _action;
 		public string Action
 		{
-			get { return action; }
+			get { return _action; }
 			set
 			{
-				action = value;
-				OnPropertyChanged("action");
+				_action = value;
+			}
+		}
+		#endregion
+
+		/// <summary>
+		/// Init Model
+		/// </summary>
+		public StatusBoxPlayerModel()
+        {
+
+        }
+
+		/// Update status values - Pulls from API
+        public void Update()
+        {
+			if (apiHook == null)
+			{
+				apiHook = app.mainHook.apiHook;
+			}
+
+			if (apiHook != null)
+			{
+				Hp = apiHook.Player.HP.ToString();
+				Mp = apiHook.Player.MP.ToString();
+				Job = apiHook.Player.MainJob.ToString();
+				Zone = apiHook.Player.ZoneId.ToString();
+				PosX = apiHook.Player.X.ToString();
+				PosY = apiHook.Player.Y.ToString();
+				PosZ = apiHook.Player.Z.ToString();
+				Target = apiHook.Target.GetTargetInfo().TargetName;
+				Action = "N/A";
 			}
 		}
 
-		public StatusBoxPlayerModel()
-        {
-            this.hp = "N/A";
-            this.mp = "N/A";
-            this.job = "N/A";
-            this.zone = "N/A";
-            this.posX = "N/A";
-            this.posY = "N/A";
-            this.posZ = "N/A";
-            this.targetInfo = "N/A";
-			this.action = "N/A";
-
-			if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
-			{
-				UpdateTimerStart();
-			}
-        }
-
-        private bool timerStart = false;
-        public bool TimerStart
-        {
-            get { return timerStart; }
-            set
-            {
-                timerStart = value;
-               // UpdateTimerStart();
-            }
-        }
-
-        public void UpdateTimerStart()
-        {
-            Timer timer = new Timer();
-            timer.Interval = 300;
-			timer.Elapsed += TimerTick;
-            timer.Start(); 
-        }
-
-        private void TimerTick(object sender, EventArgs e)
-        {
-            apiHook = app.mainHook.apiHook;
-            if (apiHook != null)
-            {
-                Update();
-            }
-        }
-
-        private void Update()
-        {
-            apiHook = app.mainHook.apiHook;
-            Hp = apiHook.Player.HP.ToString();
-            Mp = apiHook.Player.MP.ToString();
-        }
-
+		/// <summary>
+		/// Logic for UI update on value change
+		/// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
 		private void OnPropertyChanged(string propertyName)

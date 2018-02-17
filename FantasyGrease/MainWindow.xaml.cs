@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using FantasyGrease.ViewModels;
 using FantasyGrease.Views;
-using EliteMMO.API;
 
 namespace FantasyGrease
 {
@@ -25,12 +24,18 @@ namespace FantasyGrease
 	public partial class MainWindow : Window
 	{
 
-		EliteAPI apiHook = null;
-		//MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+		bool isHooked = false;
 
 		public MainWindow()
 		{
 			InitializeComponent();
+		}
+
+		public void Hooked(string charName)
+		{
+			isHooked = true;
+			hookChar_Button.Content = charName;
+			hookChar_Button.Background = Brushes.LawnGreen;
 		}
 
 		private void Close_Click(object sender, RoutedEventArgs e)
@@ -45,9 +50,9 @@ namespace FantasyGrease
 
 		private void hookChar_Button_Click(object sender, RoutedEventArgs e)
 		{
-			if (apiHook == null)
+			if (!isHooked)
 			{
-				HookView hookView = new HookView();
+				HookWindow hookView = new HookWindow(this);
 				hookView.Show();
 				this.IsEnabled = false;
 			}

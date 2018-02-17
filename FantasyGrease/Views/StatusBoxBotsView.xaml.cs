@@ -18,9 +18,9 @@ namespace FantasyGrease.Views
 	/// <summary>
 	/// Interaction logic for StatusBoxViewBots.xaml
 	/// </summary>
-	public partial class StatusBoxViewBots : UserControl
+	public partial class StatusBoxBotsView : UserControl
 	{
-		public StatusBoxViewBots()
+		public StatusBoxBotsView()
 		{
 			InitializeComponent();
 		}
