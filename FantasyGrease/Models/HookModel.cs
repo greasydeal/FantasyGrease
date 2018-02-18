@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using FantasyGrease;
 using FantasyGrease.ViewModels;
+using FantasyGrease.Classes;
 using EliteMMO.API;
 
 namespace FantasyGrease.Models
@@ -26,7 +27,7 @@ namespace FantasyGrease.Models
 			try
 			{
 				apiHook = new EliteAPI(procID);
-				app.mainHook.SetHook(apiHook);
+				Player.apiHook = apiHook;
 				hookViewModel.CloseWindow();
 				return true;
 			}

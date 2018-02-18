@@ -14,6 +14,6 @@ namespace FantasyGrease
 	/// </summary>
 	public partial class App : Application
 	{
-		public MainHook mainHook = new MainHook();
+
 	}
 }

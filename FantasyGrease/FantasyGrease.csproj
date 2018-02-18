@@ -98,9 +98,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\MainHook.cs" />
-    <Compile Include="Classes\Timers\TimerHookCheck.cs" />
-    <Compile Include="Classes\Timers\TimerStatusBoxPlayer.cs" />
+    <Compile Include="Classes\Jobs.cs" />
+    <Compile Include="Classes\Player.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Models\StatusBoxPlayerModel.cs" />
     <Compile Include="ViewModels\HookViewModel.cs" />

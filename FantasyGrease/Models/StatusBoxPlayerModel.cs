@@ -8,6 +8,7 @@ using System.Timers;
 using System.Windows.Threading;
 using EliteMMO.API;
 using FantasyGrease.ViewModels;
+using FantasyGrease.Classes;
 using System.Windows;
 
 
@@ -15,10 +16,8 @@ namespace FantasyGrease.Models
 {
     public class StatusBoxPlayerModel
     {
-        
-        private App app = App.Current as App;
-        EliteAPI apiHook;
 		StatusBoxPlayerViewModel viewModel;
+		Player player = new Player();
 
 		public StatusBoxPlayerModel(StatusBoxPlayerViewModel vm)
 		{
@@ -40,7 +39,29 @@ namespace FantasyGrease.Models
             }
         }
 
-        private string _mp;
+		private string _hpMax;
+		public string HpMax
+		{
+			get
+			{ return _hpMax; }
+			set
+			{
+				_hpMax = value;
+			}
+		}
+
+		private string _hpp;
+		public string Hpp
+		{
+			get
+			{ return _hpp; }
+			set
+			{
+				_hpp = value;
+			}
+		}
+
+		private string _mp;
         public string Mp
         {
             get { return _mp; }
@@ -50,7 +71,29 @@ namespace FantasyGrease.Models
             }
         }
 
-        private string _job;
+		private string _mpp;
+		public string Mpp
+		{
+			get
+			{ return _mpp; }
+			set
+			{
+				_mpp = value;
+			}
+		}
+
+		private string _mpMax;
+		public string MpMax
+		{
+			get
+			{ return _mpMax; }
+			set
+			{
+				_mpMax = value;
+			}
+		}
+
+		private string _job;
         public string Job
         {
             get { return _job; }
@@ -110,13 +153,13 @@ namespace FantasyGrease.Models
             }
         }
 
-		private string _action;
-		public string Action
+		private string _targetId;
+		public string TargetId
 		{
-			get { return _action; }
+			get { return _targetId; }
 			set
 			{
-				_action = value;
+				_targetId = value;
 			}
 		}
 		#endregion
@@ -126,28 +169,28 @@ namespace FantasyGrease.Models
 		/// </summary>
 		public StatusBoxPlayerModel()
         {
+			
+		}
 
-        }
-
-		/// Update status values - Pulls from API
+		// Update status values - Pulls from API
         public void Update()
         {
-			if (apiHook == null)
-			{
-				apiHook = app.mainHook.apiHook;
-			}
 
-			if (apiHook != null)
+			if (Player.apiHook != null)
 			{
-				Hp = apiHook.Player.HP.ToString();
-				Mp = apiHook.Player.MP.ToString();
-				Job = apiHook.Player.MainJob.ToString();
-				Zone = apiHook.Player.ZoneId.ToString();
-				PosX = apiHook.Player.X.ToString();
-				PosY = apiHook.Player.Y.ToString();
-				PosZ = apiHook.Player.Z.ToString();
-				Target = apiHook.Target.GetTargetInfo().TargetName;
-				Action = "N/A";
+				Hp = player.HP.ToString();
+				HpMax = player.HPMax.ToString();
+				Hpp = player.HPP.ToString();
+				Mp = player.MP.ToString();
+				MpMax = player.MPMax.ToString();
+				Mpp = player.MPP.ToString();
+				Job = player.MainJobLevel + player.MainJobName + "/" + player.SubJobLevel + player.SubJobName;
+				Zone = player.ZoneId.ToString();
+				PosX = player.X.ToString();
+				PosY = player.Y.ToString();
+				PosZ = player.Z.ToString();
+				Target = player.TargetName;
+				TargetId = player.TargetId.ToString();
 			}
 		}
 

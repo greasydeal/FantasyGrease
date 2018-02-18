@@ -27,6 +27,7 @@ namespace FantasyGrease.Views
 		public StatusBoxPlayerView()
 		{
 			InitializeComponent();
-        }
+		}
+
     }
 }

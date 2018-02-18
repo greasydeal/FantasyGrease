@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FantasyGrease.Models;
+using FantasyGrease.Views;
 using EliteMMO.API;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -22,14 +23,16 @@ namespace FantasyGrease.ViewModels
 		{
 			model = new StatusBoxPlayerModel(this);
 			model.Hp = "N/A";
+			model.HpMax = "N/A";
 			model.Mp = "N/A";
+			model.MpMax = "N/A";
 			model.Job = "N/A";
 			model.Zone = "N/A";
 			model.PosX = "N/A";
 			model.PosY = "N/A";
 			model.PosZ = "N/A";
 			model.Target = "N/A";
-			model.Action = "N/A"; 
+			model.TargetId = "N/A"; 
 
 			if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
 			{
@@ -50,6 +53,29 @@ namespace FantasyGrease.ViewModels
 			}
 		}
 
+		private string _hpp;
+		public string Hpp
+		{
+			get { return _hpp; }
+			set
+			{
+				_hpp = value;
+				OnPropertyChanged("hpp");
+			}
+		}
+
+		private string _hpMax;
+		public string HpMax
+		{
+			get
+			{ return _hpMax; }
+			set
+			{
+				OnPropertyChanged("hpMax");
+				_hpMax = value;
+			}
+		}
+
 		private string _mp;
 		public string Mp
 		{
@@ -58,6 +84,29 @@ namespace FantasyGrease.ViewModels
 			{
 				_mp = value;
 				OnPropertyChanged("mp");
+			}
+		}
+
+		private string _mpp;
+		public string Mpp
+		{
+			get { return _mpp; }
+			set
+			{
+				_mpp = value;
+				OnPropertyChanged("mpp");
+			}
+		}
+
+		private string _mpMax;
+		public string MpMax
+		{
+			get
+			{ return _mpMax; }
+			set
+			{
+				_mpMax = value;
+				OnPropertyChanged("mpMax");
 			}
 		}
 
@@ -127,14 +176,14 @@ namespace FantasyGrease.ViewModels
 			}
 		}
 
-		private string _action;
-		public string Action
+		private string _targetId;
+		public string TargetId
 		{
-			get { return _action; }
+			get { return _targetId; }
 			set
 			{
-				_action = value;
-				OnPropertyChanged("action");
+				_targetId = value;
+				OnPropertyChanged("targetId");
 			}
 		}
 
@@ -154,14 +203,18 @@ namespace FantasyGrease.ViewModels
 		{
 			model.Update();
 			this.Hp = model.Hp;
+			this.HpMax = model.HpMax;
+			this.Hpp = model.Hpp;
 			this.Mp = model.Mp;
+			this.Mpp = model.Mpp;
+			this.MpMax = model.MpMax;
 			this.Job = model.Job;
 			this.Zone = model.Zone;
 			this.PosX = model.PosX;
 			this.PosY = model.PosY;
 			this.PosZ = model.PosZ;
 			this.Target = model.Target;
-			this.Action = model.Action;
+			this.TargetId = model.TargetId;
 		}
 
 

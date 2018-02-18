@@ -45,18 +45,51 @@
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" Text="Pos Y:" VerticalAlignment="Center" Foreground="White"/>
         <TextBlock Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right" Text="Pos Z:" VerticalAlignment="Center" Foreground="White"/>
         <TextBlock Grid.Column="0" Grid.Row="7" HorizontalAlignment="Right" Text="Target:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Text="Action:" VerticalAlignment="Center" Foreground="White"/>
+        <TextBlock Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" Text="Tar. ID:" VerticalAlignment="Center" Foreground="White"/>
         
         <!-- Status Values -->
-        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Text="{Binding Hp, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Mp, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        <!-- HP -->
+        <TextBlock Name="valueHP" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} / {1} ({2}%)">
+                    <Binding Path="Hp"/>
+                    <Binding Path="HpMax"/>
+                    <Binding Path="Hpp"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        
+        <!-- MP -->
+        <TextBlock Name="valueMP" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} / {1} ({2}%)">
+                    <Binding Path="Mp"/>
+                    <Binding Path="MpMax"/>
+                    <Binding Path="Mpp"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        
+        <!-- Job -->
         <TextBlock Name="valueJob" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Text="{Binding Job, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Zone -->
         <TextBlock Name="valueZone" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Text="{Binding Zone, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Pos X -->
         <TextBlock Name="valuePosX" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Text="{Binding PosX, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Pos Y -->
         <TextBlock Name="valuePosY" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" Text="{Binding PosY, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Pos Z -->
         <TextBlock Name="valuePosZ" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" Text="{Binding PosZ, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Target -->
         <TextBlock Name="valueTargetInfo" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" Text="{Binding Target, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
-        <TextBlock Name="valueAction" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="{Binding Action, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
+        
+        <!-- Target ID -->
+        <TextBlock Name="valueTarget" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" Text="{Binding TargetId, Mode=OneWay}" VerticalAlignment="Center" Foreground="White" Padding="5,0,0,0"/>
 
     </Grid>
 </UserControl>
