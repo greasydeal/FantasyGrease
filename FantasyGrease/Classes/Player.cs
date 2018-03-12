@@ -88,11 +88,21 @@ namespace FantasyGrease.Classes
 		// Pos Z - Returns current Z location (float)
 		public float Z => apiHook.Player.Z;
 
+		// Rot - Returns current roation
+		public float Rot => apiHook.Player.H;
+
 		// Target Id - Returns Id of the current target
 		public uint TargetId => apiHook.Target.GetTargetInfo().TargetId;
 
+		// Target Index - Returns index of the current target
+		public uint TargetIndex => apiHook.Target.GetTargetInfo().TargetIndex;
+
+
 		// Target Name - Returns name of the current target
 		public string TargetName => apiHook.Target.GetTargetInfo().TargetName;
+
+		// Set Rotation - Sets player's rotation
+		public void SetRotation(float rot) => apiHook.Player.H = rot;
 
 	}
 }

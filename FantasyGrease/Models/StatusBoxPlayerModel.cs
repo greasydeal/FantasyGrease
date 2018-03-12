@@ -184,13 +184,14 @@ namespace FantasyGrease.Models
 				Mp = player.MP.ToString();
 				MpMax = player.MPMax.ToString();
 				Mpp = player.MPP.ToString();
-				Job = player.MainJobLevel + player.MainJobName + "/" + player.SubJobLevel + player.SubJobName;
+				Job = player.MainJobLevel + " " + player.MainJobName + " / " + player.SubJobLevel + " " + player.SubJobName;
 				Zone = player.ZoneId.ToString();
 				PosX = player.X.ToString();
 				PosY = player.Y.ToString();
 				PosZ = player.Z.ToString();
 				Target = player.TargetName;
-				TargetId = player.TargetId.ToString();
+				TargetId = (player.TargetIndex.ToString("X")).ToString() ;
+				
 			}
 		}
 
