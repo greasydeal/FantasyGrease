@@ -119,6 +119,9 @@
     <Compile Include="Views\StatusBoxPlayerView.xaml.cs">
       <DependentUpon>StatusBoxPlayerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UnityView.xaml.cs">
+      <DependentUpon>UnityView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StatusBoxPlayerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UnityView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

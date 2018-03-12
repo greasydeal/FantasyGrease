@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:FantasyGrease.Views"
         xmlns:vm="clr-namespace:FantasyGrease.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Path=WindowTitle}" Height="500" Width="720" BorderBrush="#FF3A3A3A" Background="#FF595959" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Icon="../Resources/FG.ico">
+        Title="{Binding Path=WindowTitle}" Height="360" Width="600" MinHeight="360" MinWidth="600" BorderBrush="#FF3A3A3A" Background="#FF595959" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Icon="../Resources/FG.ico">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -68,9 +68,9 @@
             </Grid.ColumnDefinitions>
 
             <!-- Win Control Buttons Grid -->
-            <Button Name="minimize_Button" Grid.Row="0" Grid.Column="1" Height="20" Width="20" VerticalContentAlignment="Center" Content="-" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" OpacityMask="Black" Opacity="0.5"/>
-            <Button Name="collapse_Button" Grid.Row="0" Grid.Column="0" Height="20" Width="20" VerticalContentAlignment="Bottom" Content="^" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"/>
-            <Button Name="close" Grid.Row="0" Grid.Column="2" Height="20" Width="20" VerticalContentAlignment="Center" Content="X" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"  Click="Close_Click" />
+            <Button Name="minimize_Button" Grid.Row="0" Grid.Column="0" Height="20" Width="20" VerticalContentAlignment="Center" Content="__" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" OpacityMask="Black" Opacity="0.5"/>
+            <Button Name="maximize_button" Grid.Row="0" Grid.Column="1" Height="20" Width="20" VerticalContentAlignment="Center" Content="[]" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"/>
+            <Button Name="close_Button" Grid.Row="0" Grid.Column="2" Height="20" Width="20" VerticalContentAlignment="Center" Content="X" Background="#FFE28B0D" BorderThickness="0" FontFamily="Segoe UI Black" Foreground="#FF595959" Opacity="0.5"  Click="Close_Click" />
         </Grid>
 
        
@@ -84,27 +84,22 @@
             <!-- Body Row Defs -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="130" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <!-- Dock panel for hook char button and staus box -->
             <DockPanel Grid.Column="2">
                 <Button Name="hookChar_Button" Content="Hook Character" Background="IndianRed" Height="20"  Margin="5,25,5,5" DockPanel.Dock="Top" Click="hookChar_Button_Click"/>
 
-                <!-- Status Group Box -->
-                <GroupBox Name="statusBox" DockPanel.Dock="Top" Background="#FF3C3C3C" Foreground="White" Header="Status">
-                    <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="Player" HorizontalAlignment="Center"/>
-                        <controls:StatusBoxPlayerView HorizontalAlignment="Left" DockPanel.Dock="Top"/>
-                        <TextBlock DockPanel.Dock="Top" Text="Bots" HorizontalAlignment="Center"/>
-                        <controls:StatusBoxBotsView HorizontalAlignment="Left" DockPanel.Dock="Top"/>
-                    </DockPanel>
+                <!-- Player Status Group Box -->
+                <GroupBox Name="playerStatusBox" DockPanel.Dock="Top" Background="#FF3C3C3C" Foreground="White" Header="Player">
+                    <controls:StatusBoxPlayerView HorizontalAlignment="Left" DockPanel.Dock="Top"/>
                 </GroupBox>
             </DockPanel>
             
-            <!-- Speed Hack Box -->
-            <GroupBox Name="speedBox" Grid.Column="2" Grid.Row="2" Height="120" Background="#FF3C3C3C" Foreground="White" Header="Speed Hack">
-
+            <!-- Bot Status Group Box -->
+            <GroupBox Name="botStatusBox" Grid.Column="2" Grid.Row="2" Height="Auto" Background="#FF3C3C3C" Foreground="White" Header="Bots">
+                <controls:StatusBoxBotsView HorizontalAlignment="Left" DockPanel.Dock="Top"/>
             </GroupBox>
 
             <!-- Tab Control Box -->
@@ -118,11 +113,8 @@
                 <TabItem Header="Nav">
 
                 </TabItem>
-                <TabItem Header="Crafting">
-                    
-                </TabItem>
-                <TabItem Header="Script">
-
+                <TabItem Header="Unity">
+                    <controls:UnityView/>
                 </TabItem>
                 <TabItem Header="Settings">
                     

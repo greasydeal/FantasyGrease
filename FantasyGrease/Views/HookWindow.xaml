@@ -41,7 +41,6 @@
 
         <!-- Title Bar Text -->
         <DockPanel Grid.Row="0" Grid.Column="1">
-            <Image Source="../../FG.ico" Height="25" Width="25" VerticalAlignment="Center" MouseDown="TitleBar_MouseDown" DockPanel.Dock="Left"/>
             <TextBlock VerticalAlignment="Center" Text="Hook Character" MouseDown="TitleBar_MouseDown" FontSize="16" FontStretch="ExtraExpanded" DockPanel.Dock="Left"/>
         </DockPanel>
 
