@@ -4,9 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FantasyGrease.Views"
+             xmlns:controls="clr-namespace:FantasyGrease.ViewModels"
              mc:Ignorable="d" 
-             
              TextBlock.Foreground="White">
+    
+    <Control.Resources>
+        <controls:UnityViewModel x:Key="model"/>
+    </Control.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
@@ -40,7 +45,7 @@
                 <TextBlock Text="Stop on full inventory." Grid.Row="1" Grid.Column="1" Margin="5"/>
                 <TextBlock Text="Stop on capped sparks." Grid.Row="2" Grid.Column="1" Margin="5"/>
             </Grid>
-            <TextBlock Text="Status: Not Running" Margin="0,25" HorizontalAlignment="Center"/>
+            <TextBlock Text="test" Margin="0,25" HorizontalAlignment="Center"/>
         </StackPanel>
 
         <Grid Row="1">
@@ -49,7 +54,7 @@
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Run" Grid.Column="0" Margin="5" Background="GreenYellow"/>
+            <Button Content="Run" Grid.Column="0" Margin="5" Background="LawnGreen"/>
             <Button Content="Pause" Grid.Column="1" Margin="5" Background="Orange"/>
         </Grid>
 

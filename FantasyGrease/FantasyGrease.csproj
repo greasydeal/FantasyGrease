@@ -98,8 +98,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Bots\Bot.cs" />
-    <Compile Include="Bots\NavBot.cs" />
+    <Compile Include="Models\Bots\Bot.cs" />
+    <Compile Include="Models\Bots\NavBot.cs" />
     <Compile Include="Classes\Jobs.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
@@ -107,6 +107,7 @@
     <Compile Include="ViewModels\HookViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\StatusBoxPlayerViewModel.cs" />
+    <Compile Include="ViewModels\UnityViewModel.cs" />
     <Compile Include="Views\HookWindow.xaml.cs">
       <DependentUpon>HookWindow.xaml</DependentUpon>
     </Compile>
