@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:FantasyGrease.Views"
         xmlns:vm="clr-namespace:FantasyGrease.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Path=WindowTitle}" Height="360" Width="600" MinHeight="360" MinWidth="600" BorderBrush="#FF3A3A3A" Background="#FF595959" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Icon="../Resources/FG.ico">
+        Title="{Binding Path=WindowTitle}" Height="360" Width="600" MinHeight="360" MinWidth="600" BorderBrush="#FF3A3A3A" Background="#FF595959" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" Icon="../Resources/FG.ico">
 
     <Window.Resources>
         <Style TargetType="Button">

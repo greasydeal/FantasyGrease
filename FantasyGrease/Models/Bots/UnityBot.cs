@@ -7,10 +7,16 @@ using FantasyGrease.Classes;
 
 namespace FantasyGrease.Models.Bots
 {
-    class Bot
+    class UnityBot : Bot
     {
-		static public Player player = new Player();
-		static public string status;
-		public bool isRunning;
+		public UnityBot()
+		{
+			isRunning = false;
+		}
+
+		public void Start()
+		{
+
+		}
     }
 }

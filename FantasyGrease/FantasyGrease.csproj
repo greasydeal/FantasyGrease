@@ -102,6 +102,7 @@
     <Compile Include="Models\Bots\NavBot.cs" />
     <Compile Include="Classes\Jobs.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Models\Bots\UnityBot.cs" />
     <Compile Include="Models\MainWindowModel.cs" />
     <Compile Include="Models\StatusBoxPlayerModel.cs" />
     <Compile Include="ViewModels\HookViewModel.cs" />

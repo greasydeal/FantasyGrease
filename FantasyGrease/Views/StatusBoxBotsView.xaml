@@ -5,29 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FantasyGrease.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="180">
+             d:DesignHeight="250" d:DesignWidth="180"
+             TextBlock.Foreground="White"
+             Name="Master">
     <Grid>
-        <!--Grid Col Defs-->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="120"/>
-        </Grid.ColumnDefinitions>
-        <!-- Grid Row Defs -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!-- Status Labels -->
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Text="Farm:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Text="Nav:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Text="Cure:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" Text="Craft:" VerticalAlignment="Center" Foreground="White"/>
-        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" Text="Script:" VerticalAlignment="Center" Foreground="White"/>
+        <StackPanel>
+            <TextBlock Text="Farm:" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Nav:" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Cure:" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Unity:" VerticalAlignment="Center" Foreground="White"/>
+            <TextBlock Text="Some features may use multiple bots." FontSize="10" VerticalAlignment="Center" Foreground="White"/>
+        </StackPanel>
 
     </Grid>
 </UserControl>
